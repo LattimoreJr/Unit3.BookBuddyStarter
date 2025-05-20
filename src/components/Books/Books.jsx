@@ -3,9 +3,23 @@ import "./books.css"
 import { Link, useNavigate } from "react-router-dom";
 
 const Books = ({allBooks, setAllBooks}) => {
+    const navigate = useNavigate()
+
+    const searchForBook = (formData) => {
+        const target = formData.get("searchBar").toLowerCase()
+        navigate(`/books/search/?book=${target}`)
+    }
+
+
   return (
     <div className="booksContainer">
       <h1>Here is our Catalog:</h1>
+      <br/>
+      <h3>Search for a book by title</h3>
+        <form action={searchForBook}>
+            <input type="text" name="searchBar"/>
+            <button type="submit">Search</button>
+        </form>
       {
         allBooks.map((book) => {
           return (
@@ -14,7 +28,7 @@ const Books = ({allBooks, setAllBooks}) => {
                 <h3>{book.title}</h3> 
                 </Link>
 
-                <p>{book.author}</p>
+                <p>By: {book.author}</p>
             </div>
           )
         })

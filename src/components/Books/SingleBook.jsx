@@ -13,15 +13,15 @@ const SingleBook = ({allBooks, setAllBooks}) => {
       return book.id === id
     })
 
-    console.log(book)
+    
     return (
         <div className="singleBookContainer">
-        <h1>{book.title}</h1>
-        <p>{book.author}</p>
-        <p>{book.description}</p>
-        <img src={book.coverimage ? book.coverimage : null} alt={book.name}/>
-        <br/>
-        <Link to="/books">Back to Library</Link>
+            <h1>{book.title}</h1>
+            <p>{book.author}</p>
+            <p>{book.description}</p>
+            <img src={book.coverimage ? book.coverimage : null} alt={book.name}/>
+            <br/>
+            <Link to="/books">Back to Library</Link>
         </div>
     );
 }
